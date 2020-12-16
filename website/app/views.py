@@ -5,7 +5,7 @@ from app import app
 import io
 import base64
 import matplotlib.pyplot as plt
-import xml_driver
+from vulnerscan.website.app import xml_driver
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
