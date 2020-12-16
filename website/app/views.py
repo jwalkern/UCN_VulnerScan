@@ -7,7 +7,7 @@ import base64
 import matplotlib.pyplot as plt
 import sys
 
-sys.path.append('/vulnerScan/nmap')
+sys.path.append('../vulnerScan/nmap')
 import xml_driver as x
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
