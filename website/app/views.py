@@ -67,6 +67,6 @@ def sojle():
     
     plt.show()
     
-    return render_template("test.tml", graf=plt.show())
+    return render_template("test.html", graf=plt.show())
     
     
