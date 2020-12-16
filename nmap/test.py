@@ -28,15 +28,15 @@ for host in hosts:
     
     width = 0.35       # the width of the bars: can also be len(x) sequence
     
-    # fig, ax = plt.subplots()
+    fig, ax = plt.subplots()
     
-    # ax.bar(labels, men_means, width, label='Exploit')
-    # ax.bar(labels, women_means, width, bottom=men_means,
-    #        label='Active')
+    ax.bar(labels, men_means, width, label='Exploit')
+    ax.bar(labels, women_means, width, bottom=men_means,
+            label='Active')
     
-    # ax.set_ylabel('Scores')
-    # ax.set_title(str(ipaddresse))
-    # ax.legend()
+    ax.set_ylabel('Scores')
+    ax.set_title(str(ipaddresse))
+    ax.legend()
     
-    # plt.savefig('/static/images/name'+str(counter)+'.png')
-    # counter = counter + 1
+    plt.savefig('/static/images/name'+str(counter)+'.png')
+    counter = counter + 1
