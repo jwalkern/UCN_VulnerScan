@@ -2,7 +2,7 @@
 
 from flask import render_template
 from app import app
-from xml_driver import xml_read
+from vulnerscan.nmap.xml_driver import xml_read
 
 import io
 import base64
