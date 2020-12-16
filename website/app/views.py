@@ -2,11 +2,13 @@
 
 from flask import render_template
 from app import app
-from vulnerScan.nmap.xml_driver import xml_read
-
 import io
 import base64
 import matplotlib.pyplot as plt
+import sys
+
+sys.path.append('/vulnerScan/nmap')
+import xml_driver as x
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -43,7 +45,7 @@ def plotView():
 
 @app.route('/nmap')
 def nmap_result():
-    host = xml_read('text.xml')
+    host = x.xml_read('text.xml')
     pass
 
 @app.route('/test')
