@@ -9,7 +9,7 @@ from xml.etree.ElementTree import ParseError
 
 
 
-def xml_driver(file):
+def xml_reader(file):
     
     
     
@@ -89,7 +89,8 @@ def xml_driver(file):
                 
         details['ports']=port_list
         hosts.append(details)
-        return hosts
+    return hosts
+    
     
 
 
