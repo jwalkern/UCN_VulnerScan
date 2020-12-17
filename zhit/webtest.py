@@ -22,11 +22,11 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def plotView():
     
-    from xml_driver import xml_driver
+    from xml_driver import xml_reader
 
     xmlFile = 'test.xml'
     
-    hosts = xml_driver(xmlFile)
+    hosts = xml_reader(xmlFile)
     counter = 0
     # totalCriticalExploits = 0
     # totalPossibleExploits = 0
