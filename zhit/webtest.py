@@ -69,11 +69,11 @@ def plotView():
         ax.set_title(title)
         ax.legend()
         
-        plt.figure(counter)
+        plt.figure(title)
         
     plt.show()
         
-    return render_template('image.html', image=plt.show)
+    return render_template('image.html', image=plt.show())
  
  
  
