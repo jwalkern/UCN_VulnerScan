@@ -22,39 +22,57 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def plotView():
     
-    for i in range(3):
+    from xml_driver import xml_driver
+
+    xmlFile = 'test.xml'
+    
+    hosts = xml_driver(xmlFile)
+    counter = 0
+    # totalCriticalExploits = 0
+    # totalPossibleExploits = 0
+    
+    for host in hosts:
         
-        # Generate plot
-        port = ['P21', 'P22', 'P80', 'P139', '145']
-        exploit = [20, 35, 30, 35, 27]
-        active_exploit = [25, 32, 34, 20, 25]
+        counter += 1
+        # filePath = f'/static/images/plot{counter}.png'
+        
+        title = host['address']
+        
+        chartPorts = []
+        verifiedExploits = []
+        possibleExploits = []
+        
+        if 'ports' in hosts[1]:
+            for port in hosts[1]['ports']:
+                
+                chartPorts.append(port['port'])
+                if 'active exploits:' in port:
+                    verifiedExploits.append(port['active exploits:'])
+                else:
+                    verifiedExploits.append(0)
+                    
+                if 'exploits:' in port:
+                    possibleExploits.append(port['exploits:'])
+                else:
+                    possibleExploits.append(0)
+    
     
         width = 0.35       # the width of the bars: can also be len(x) sequence
         
         fig, ax = plt.subplots()
         
-        ax.bar(port, exploit, width, label='Exploits')
-        ax.bar(port, active_exploit, width, bottom=exploit,
+        ax.bar(chartPorts, possibleExploits, width, label='Exploits')
+        ax.bar(chartPorts, verifiedExploits, width, bottom=possibleExploits,
                label='Active Exploits')
         
         ax.set_ylabel('Exploits')
-        ax.set_title('Ip-Adresse')
+        ax.set_title(title)
         ax.legend()
         
-        plt.figure(i)
+        plt.figure(counter)
         
     plt.show()
-    
-    # Convert plot to PNG image
-    # pngImage = io.BytesIO()
-    # FigureCanvas(fig).print_png(pngImage)
-    
-    # # Encode PNG image to base64 string
-    # pngImageB64String = "data:image/png;base64,"
-    # pngImageB64String += base64.b64encode(pngImage.getvalue()).decode('utf8')
-    
-    # plt.savefig('/static/images/plot'+str(counter)+'.png')
-    
+        
     return render_template('image.html', image=plt.show)
  
  
