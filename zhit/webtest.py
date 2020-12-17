@@ -33,8 +33,8 @@ def plotView():
         verifiedExploits = []
         possibleExploits = []
         
-        if 'ports' in hosts[1]:
-            for port in hosts[1]['ports']:
+        if 'ports' in host:
+            for port in host['ports']:
                 
                 chartPorts.append(port['port'])
                 if 'active exploits:' in port:
@@ -59,7 +59,7 @@ def plotView():
         ax.set_ylabel('Exploits')
         ax.set_title(title)
         
-        plt.figure(title)
+        plt.figure(counter)
         
     plt.show()
         
