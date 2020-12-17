@@ -31,8 +31,7 @@ def plotView():
     
     # PLT.show()
     
-    chart = plt.figure()
-    
+   
     hosts = xml_reader('test.xml')
     counter = 0
     
@@ -64,9 +63,7 @@ def plotView():
     
         width = 0.35       # the width of the bars: can also be len(x) sequence
         
-        # fig, ax = plt.subplots()
-        
-        ax = chart.add_subplot(2,1,counter)
+        fig, ax = plt.subplots()
         
         
         ax.bar(chartPorts, possibleExploits, width, label='Exploits')
