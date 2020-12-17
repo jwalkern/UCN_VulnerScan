@@ -7,12 +7,10 @@ Created on Wed Dec 16 09:57:14 2020
 """
  
 from flask import Flask, render_template
-import io
-import base64
+
 import matplotlib.pyplot as plt
+from xml_driver import xml_reader
 
-
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 
  
 app = Flask(__name__)
@@ -22,19 +20,12 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def plotView():
     
-    from xml_driver import xml_reader
-
-    xmlFile = 'test.xml'
-    
-    hosts = xml_reader(xmlFile)
+    hosts = xml_reader('test.xml')
     counter = 0
-    # totalCriticalExploits = 0
-    # totalPossibleExploits = 0
     
     for host in hosts:
         
         counter += 1
-        # filePath = f'/static/images/plot{counter}.png'
         
         title = host['address']
         
@@ -67,7 +58,6 @@ def plotView():
         
         ax.set_ylabel('Exploits')
         ax.set_title(title)
-        ax.legend()
         
         plt.figure(title)
         
