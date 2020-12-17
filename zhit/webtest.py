@@ -22,35 +22,38 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def plotView():
     
-    counter = 0          
-    # Generate plot
-    port = ['P21', 'P22', 'P80', 'P139', '145']
-    exploit = [20, 35, 30, 35, 27]
-    active_exploit = [25, 32, 34, 20, 25]
-
-    width = 0.35       # the width of the bars: can also be len(x) sequence
+    for i in range(10):
+        
+        # Generate plot
+        port = ['P21', 'P22', 'P80', 'P139', '145']
+        exploit = [20, 35, 30, 35, 27]
+        active_exploit = [25, 32, 34, 20, 25]
     
-    fig, ax = plt.subplots()
-    
-    ax.bar(port, exploit, width, label='Exploits')
-    ax.bar(port, active_exploit, width, bottom=exploit,
-           label='Active Exploits')
-    
-    ax.set_ylabel('Exploits')
-    ax.set_title('Ip-Adresse')
-    ax.legend()
-    
-    plt.show()
+        width = 0.35       # the width of the bars: can also be len(x) sequence
+        
+        fig, ax = plt.subplots()
+        
+        ax.bar(port, exploit, width, label='Exploits')
+        ax.bar(port, active_exploit, width, bottom=exploit,
+               label='Active Exploits')
+        
+        ax.set_ylabel('Exploits')
+        ax.set_title('Ip-Adresse')
+        ax.legend()
+        
+        plt.figure(i)
+        
+        plt.show()
     
     # Convert plot to PNG image
-    pngImage = io.BytesIO()
-    FigureCanvas(fig).print_png(pngImage)
+    # pngImage = io.BytesIO()
+    # FigureCanvas(fig).print_png(pngImage)
     
-    # Encode PNG image to base64 string
-    pngImageB64String = "data:image/png;base64,"
-    pngImageB64String += base64.b64encode(pngImage.getvalue()).decode('utf8')
+    # # Encode PNG image to base64 string
+    # pngImageB64String = "data:image/png;base64,"
+    # pngImageB64String += base64.b64encode(pngImage.getvalue()).decode('utf8')
     
-    plt.savefig('/static/images/plot'+str(counter)+'.png')
+    # plt.savefig('/static/images/plot'+str(counter)+'.png')
     
     return render_template('image.html', image=plt.show)
  
