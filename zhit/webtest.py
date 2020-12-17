@@ -25,14 +25,12 @@ def plotView():
     port = ['P21', 'P22', 'P80', 'P139', '145']
     men_means = [20, 35, 30, 35, 27]
     women_means = [25, 32, 34, 20, 25]
-    men_std = [2, 3, 4, 1, 2]
-    women_std = [3, 5, 2, 3, 3]
     width = 0.35       # the width of the bars: can also be len(x) sequence
     
     fig, ax = plt.subplots()
     
-    ax.bar(port, men_means, width, yerr=men_std, label='Active Exploits')
-    ax.bar(port, women_means, width, yerr=women_std, bottom=men_means,
+    ax.bar(port, men_means, width,  label='Active Exploits')
+    ax.bar(port, women_means, width, bottom=men_means,
            label='Non active Exploits')
     
     ax.set_ylabel('Exploits')
