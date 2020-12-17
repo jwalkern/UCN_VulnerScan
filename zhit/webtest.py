@@ -60,8 +60,7 @@ def plotView():
         ax.set_ylabel('Exploits')
         ax.set_title(title)
         
-        plt.figure(counter)
-        plt.hist(counter)
+        plt.subplot(10,10, title)
         
         
     plt.show()
