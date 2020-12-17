@@ -40,7 +40,7 @@ def plotView():
     ax.set_title('Ip-Adresse')
     ax.legend()
     
-    
+    plt.show()
     
     # Convert plot to PNG image
     pngImage = io.BytesIO()
@@ -52,7 +52,7 @@ def plotView():
     
     plt.savefig('/static/images/plot'+str(counter)+'.png')
     
-    return render_template('image.html', image=pngImageB64String)
+    return render_template('image.html', image=plt.show)
  
  
  
