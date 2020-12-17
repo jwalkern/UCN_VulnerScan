@@ -62,8 +62,9 @@ def plotView():
         
         plt.figure(counter)
         
-    plt.show()
-    plt.savefig(filePath)
+        
+    # plt.show()
+    # plt.savefig(filePath)
         
     return render_template('image.html', image=plt.show())
  
