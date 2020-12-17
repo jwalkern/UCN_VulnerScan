@@ -23,10 +23,11 @@ def plotView():
     hosts = xml_reader('test.xml')
     counter = 0
     
+    
     for host in hosts:
         
         counter += 1
-        
+        filePath = f'/static/images/plot{counter}.png'
         title = host['address']
         
         chartPorts = []
@@ -62,6 +63,7 @@ def plotView():
         plt.figure(counter)
         
     plt.show()
+    plt.savefig(filePath)
         
     return render_template('image.html', image=plt.show())
  

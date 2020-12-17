@@ -63,7 +63,6 @@ def xml_reader(file):
                        is_exploit = elem.text
                        if is_exploit == 'true':
                            active_exploits.append(1)
-                           exploits.append(1)
                        if is_exploit == 'false':
                            exploits.append(1)
                            
