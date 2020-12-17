@@ -22,7 +22,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def plotView():
     
-    for i in range(10):
+    for i in range(3):
         
         # Generate plot
         port = ['P21', 'P22', 'P80', 'P139', '145']
@@ -43,7 +43,7 @@ def plotView():
         
         plt.figure(i)
         
-        plt.show()
+    plt.show()
     
     # Convert plot to PNG image
     # pngImage = io.BytesIO()
