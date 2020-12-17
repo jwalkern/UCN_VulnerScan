@@ -21,16 +21,16 @@ def index():
 def plotView():
      # Generate plot
     port = ['P21', 'P22', 'P80', 'P139', '145']
-    men_means = [20, 35, 30, 35, 27]
-    women_means = [25, 32, 34, 20, 25]
+    exploit = [20, 35, 30, 35, 27]
+    active_exploit = [25, 32, 34, 20, 25]
 
     width = 0.35       # the width of the bars: can also be len(x) sequence
     
     fig, ax = plt.subplots()
     
-    ax.bar(port, men_means, width, label='Active Exploits')
-    ax.bar(port, women_means, width, bottom=men_means,
-           label='Non active Exploits')
+    ax.bar(port, exploit, width, label='Exploits')
+    ax.bar(port, active_exploit, width, bottom=exploit,
+           label='Active Exploits')
     
     ax.set_ylabel('Exploits')
     ax.set_title('Ip-Adresse')
