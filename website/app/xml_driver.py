@@ -9,7 +9,7 @@ from xml.etree.ElementTree import ParseError
 
 
 
-def xml_read(file):
+def xml_reader(file):
     
     
     

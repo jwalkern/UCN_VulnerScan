@@ -61,9 +61,10 @@ def plotView():
         ax.set_title(title)
         
         plt.figure(counter)
+        plt.hist(counter)
         
         
-    # plt.show()
+    plt.show()
     # plt.savefig(filePath)
         
     return render_template('image.html', image=plt.show())
