@@ -73,6 +73,8 @@ def plotView():
         ax.set_ylabel('Exploits')
         ax.set_title(title)
         
+        plt.savefig(filePath)
+        
         
         
         
