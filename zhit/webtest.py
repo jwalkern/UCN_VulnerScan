@@ -39,7 +39,7 @@ def plotView():
     for host in hosts:
         
         counter += 1
-        filePath = f'/static/images/plot{counter}.png'
+        filePath = '/static/images/'
         title = host['address']
         
         chartPorts = []
@@ -73,7 +73,7 @@ def plotView():
         ax.set_ylabel('Exploits')
         ax.set_title(title)
         
-        plt.savefig(f'/static/images/plot{counter}.png')
+        plt.savefig(filePath+'plot'+str(counter)+'.png')
         
         
         
