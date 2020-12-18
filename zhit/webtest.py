@@ -39,7 +39,7 @@ def plotView():
     for host in hosts:
         
         counter += 1
-        filePath = '/static/images/'
+        filePath = './static/images/'
         title = host['address']
         
         chartPorts = []
