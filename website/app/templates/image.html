@@ -5,7 +5,10 @@
 {% block body %}
 <div class="jumbotron">
   <h1>Look at this graff</h1>
-  <p><img src="{{ image }}"/></p>
+  <img src="{{url_for('static', filename='plot1.png')}}" align="middle" />
+  <img src="{{url_for('static', filename='plot2.png')}}" align="middle" />
+  <img src="{{url_for('static', filename='plot3.png')}}" align="middle" />
+  <img src="{{url_for('static', filename='plot4.png')}}" align="middle" />
   <p class="lead">IT'S PRETTY!!!.</p>
 </div>
 {% endblock %}
