@@ -50,7 +50,7 @@ def plotView():
  
 @app.route("/result", methods=["GET"])
 def resultView():
-    xmlFile = './nmap/test.xml'
+    xmlFile = '/home/pi/vulnerScan/nmap/test.xml'
     hosts = driver.xml_reader(xmlFile)
     counter = 0
     for host in hosts:
