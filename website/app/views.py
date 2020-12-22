@@ -110,4 +110,4 @@ def resultView():
  
  
     
-    return render_template("image.html")
+    return render_template("docs.html")
