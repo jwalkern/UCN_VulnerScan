@@ -114,4 +114,4 @@ def resultView():
  
  
     
-    return render_template("images.html")
+    return render_template("image.html")
