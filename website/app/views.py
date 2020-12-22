@@ -2,6 +2,7 @@
 
 from flask import render_template
 from app import app
+import os
 import matplotlib.pyplot as plt
 from app import driver
 
@@ -65,7 +66,17 @@ def resultView():
         
         plt.savefig(filePath)
         plt.clf()
- 
- 
+        
+    """
+    test
+    """
+    images = []
+    for file in os.listdir('static/images'):
+        if file.endswith('.png'):
+            images.append(os.path.join('static/images', file))
+        else:
+            continue
+        
+        
     
-    return render_template("docs.html")
+    return render_template("docs.html", images=images)
