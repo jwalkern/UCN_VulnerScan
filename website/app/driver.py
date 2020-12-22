@@ -6,8 +6,27 @@ Created on Mon Dec 14 11:04:16 2020
 """
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import ParseError
+import socket
+import nmap3
 
 
+
+def nmap_scan():
+    
+    IP = "8.8.8.8"      
+   
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect((IP, 0))
+    ipaddr = s.getsockname()[0]
+    
+    s.close()
+    
+    print ("Target for scan:", ipaddr+"/24")
+    
+    print("nmap scan running")
+    nmap = nmap3.Nmap()
+    nmap_command = nmap.run_command(["nmap", "-O" ,"-Pn", "-sV", "-sS", "-T4", "-oX", "/home/pi/vulnerScan/website/app/static/files/result.xml", "--script=nmap-vulners", "-p22 ", str(ipaddr)+"/24"])
+    print("nmap scan complete")
 
 def xml_reader(file):
     
