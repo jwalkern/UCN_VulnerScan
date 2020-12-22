@@ -5,7 +5,7 @@ from app import app
 import io
 import base64
 import matplotlib.pyplot as plt
-from xml_driver import xml_driver
+from driver import xml_reader
 
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -51,7 +51,7 @@ def plotView():
 @app.route("/result", methods=["GET"])
 def resultView():
     xmlFile = './nmap/test.xml'
-    hosts = xml_driver(xmlFile)
+    hosts = xml_reader(xmlFile)
     counter = 0
     for host in hosts:
     
