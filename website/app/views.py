@@ -56,7 +56,7 @@ def resultView():
     for host in hosts:
     
         counter += 1
-        filePath = f"/home/pi/vulnerScan/website/app/static/images/plot{counter}.png"
+        filePath = f"/home/pi/vulnerScan/website/app/static/plot{counter}.png"
         title = host['address']
         
         chartPorts = []
