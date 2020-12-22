@@ -97,7 +97,7 @@ def resultView():
         ax.set_ylabel('Exploits')
         ax.set_title(title)
         
-        ax.legend()
+        # ax.legend()
                 
                
         plt.savefig(filePath)
