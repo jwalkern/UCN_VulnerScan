@@ -77,23 +77,23 @@ def resultView():
                 else:
                     possibleExploits.append(0)
  
-        
-            # Generate plot
-            port = chartPorts
-            vExploits = verifiedExploits
-            pExploits = possibleExploits
-            # the width of the bars: can also be len(x) sequence
             
-            fig, ax = plt.subplots()
-            width = 0.35   
-            ax.bar(port, vExploits, width, label='Not confirmed exploits')
-            ax.bar(port, pExploits, width, bottom=vExploits,
-                   label='Exploits')
-            
-            ax.set_ylabel('Exploits')
-            ax.set_title(title)
-            
-            ax.legend()
+                # Generate plot
+                port = chartPorts
+                vExploits = verifiedExploits
+                pExploits = possibleExploits
+                # the width of the bars: can also be len(x) sequence
+                
+                fig, ax = plt.subplots()
+                width = 0.35   
+                ax.bar(port, vExploits, width, label='Not confirmed exploits')
+                ax.bar(port, pExploits, width, bottom=vExploits,
+                       label='Exploits')
+                
+                ax.set_ylabel('Exploits')
+                ax.set_title(title)
+                
+                ax.legend()
                 
                 
                 
