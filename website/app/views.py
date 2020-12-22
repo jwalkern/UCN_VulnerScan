@@ -14,7 +14,17 @@ def index():
 
 @app.route('/result')
 def jquery():
-    return render_template('docs.html')
+    """
+    test
+    """
+    images = []
+    for file in os.listdir('static/images'):
+        if file.endswith('.png'):
+            images.append(os.path.join('static/images', file))
+        else:
+            continue
+    
+    return render_template('docs.html', images=images)
 
  
 @app.route("/scan", methods=["GET"])
