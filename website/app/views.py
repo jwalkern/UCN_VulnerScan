@@ -17,6 +17,10 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 def index():
     return render_template('index.html')
 
+@app.route('/jquery')
+def jquery():
+    return render_template('docs.html')
+
 
 @app.route("/myplot", methods=['GET'])
 def plotView():
@@ -110,4 +114,4 @@ def resultView():
  
  
     
-    return render_template("docs.html")
+    return render_template("images.html")
