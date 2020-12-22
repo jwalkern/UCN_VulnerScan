@@ -82,32 +82,23 @@ def resultView():
                     possibleExploits.append(0)
  
             
-                # Generate plot
-                port = chartPorts
-                vExploits = verifiedExploits
-                pExploits = possibleExploits
-                # the width of the bars: can also be len(x) sequence
+        # Generate plot
+        port = chartPorts
+        vExploits = verifiedExploits
+        pExploits = possibleExploits
+        # the width of the bars: can also be len(x) sequence
+        
+        fig, ax = plt.subplots()
+        width = 0.35   
+        ax.bar(port, vExploits, width, label='Not confirmed exploits')
+        ax.bar(port, pExploits, width, bottom=vExploits,
+               label='Exploits')
+        
+        ax.set_ylabel('Exploits')
+        ax.set_title(title)
+        
+        ax.legend()
                 
-                fig, ax = plt.subplots()
-                width = 0.35   
-                ax.bar(port, vExploits, width, label='Not confirmed exploits')
-                ax.bar(port, pExploits, width, bottom=vExploits,
-                       label='Exploits')
-                
-                ax.set_ylabel('Exploits')
-                ax.set_title(title)
-                
-                ax.legend()
-                
-                
-                
-                # # Convert plot to PNG image
-                # pngImage = io.BytesIO()
-                # FigureCanvas(fig).print_png(pngImage)
-                
-                # # Encode PNG image to base64 string
-                # pngImageB64String = "data:image/png;base64,"
-                # pngImageB64String += base64.b64encode(pngImage.getvalue()).decode('utf8')
                
         plt.savefig(filePath)
         plt.clf()
