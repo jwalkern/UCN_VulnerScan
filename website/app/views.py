@@ -5,7 +5,7 @@ from app import app
 import io
 import base64
 import matplotlib.pyplot as plt
-from app import xml_driver
+from xml_driver import xml_driver
 
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
