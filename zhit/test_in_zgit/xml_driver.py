@@ -89,7 +89,7 @@ def xml_reader(file):
         details['ports']=port_list
         hosts.append(details)
     return hosts
-    
+  
     
 
 

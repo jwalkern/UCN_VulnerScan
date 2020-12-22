@@ -61,7 +61,19 @@ for host in hosts:
         
         ax.legend()
     
-plt.show()    
+plt.show()
+
+for host in hosts:
+    print('---------------------------------------------------------')
+    print('Name:', str(host.get('name','')))
+    print('IP:', str(host.get('address', '')))
+    print('Services: ')
+    for port in host['ports']:
+        print('\t Service: ')
+        print('\t-----------------------------------')
+        for k,v in port.items():
+            print('\t\t',str(k),':',str(v))
+    print('---------------------------------------------------------')      
     
     
 
