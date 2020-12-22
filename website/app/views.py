@@ -18,9 +18,9 @@ def jquery():
     test
     """
     images = []
-    for file in os.listdir('static/images'):
+    for file in os.listdir('/home/pi/vulnerScan/website/app/static/images'):
         if file.endswith('.png'):
-            images.append(os.path.join('static/images', file))
+            images.append(os.path.join('/home/pi/vulnerScan/website/app/static/images', file))
         else:
             continue
     
