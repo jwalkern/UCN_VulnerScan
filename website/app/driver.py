@@ -27,6 +27,8 @@ def nmap_scan():
     nmap = nmap3.Nmap()
     nmap_command = nmap.run_command(["nmap", "-O" ,"-Pn", "-sV", "-sS", "-T4", "-oX", "/home/pi/vulnerScan/website/app/static/files/result.xml", "--script=nmap-vulners", "-p22 ", str(ipaddr)+"/24"])
     print("nmap scan complete")
+    file = '/home/pi/vulnerScan/website/app/static/files/result.xml'
+    return file
 
 def xml_reader(file):
     

@@ -15,13 +15,12 @@ def index():
 def jquery():
     return render_template('docs.html')
 
-@app.route('/scan')
-
-
  
-@app.route("/result", methods=["GET"])
+@app.route("/scan", methods=["GET"])
 def resultView():
-    xmlFile = '/home/pi/vulnerScan/website/app/static/files/result.xml'
+    xmlFile = driver.nmap_scan()
+    
+    # xmlFile = '/home/pi/vulnerScan/website/app/static/files/result.xml'
     hosts = driver.xml_reader(xmlFile)
     counter = 0
     for host in hosts:
@@ -69,4 +68,4 @@ def resultView():
  
  
     
-    return render_template("image.html")
+    return render_template("docs.html")
