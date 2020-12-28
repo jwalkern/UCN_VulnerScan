@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import render_template
+from flask import render_template, send_file
 from app import app
 import os
 import matplotlib.pyplot as plt
@@ -26,9 +26,14 @@ def jquery():
     
     return render_template('docs.html', images=images)
 
+@app.route('/upload')
+def upload():
+    return render_template('download.html')
+
 @app.route('/download')
 def download():
-    return render_template('download.html')
+    path = '/static/files/result.xml'
+    return send_file(path, as_attachment=True)
 
  
 @app.route("/scan", methods=["GET"])

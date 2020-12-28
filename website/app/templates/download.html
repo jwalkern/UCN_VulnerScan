@@ -2,7 +2,7 @@
 {% block title %}Download{% endblock %}
 {% block body %}
 
-<a href="./static/files/result.xml" target="_blank">Download</a>
+<a href="{{ url_for('.download_file') }}">Download</a>
 
 
 {% endblock %}
