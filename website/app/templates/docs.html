@@ -20,26 +20,14 @@
 
      <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">   
+  
+  {% for i in images %}
+      <div class="item">
+          <img src= {{ i }} >
+      </div>
+  {% endfor %}
 
-       <div class="item active">
-           <img src="/static/images/keyfeatures/plot1.png">
-       </div>
-       
-       <div class="item">
-           <img src="/static/images/keyfeatures/plot2.png">
-       </div>
-       
-       <div class="item">
-           <img src="/static/images/keyfeatures/plot3.png">
-       </div>
-       
-       <div class="item">
-           <img src="/static/images/keyfeatures/plot4.png">
-       </div>
-       
-       <div class="item">
-           <img src="/static/images/keyfeatures/plot5.png">
-       </div>
+    
 
 
   </div>

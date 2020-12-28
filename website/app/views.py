@@ -89,4 +89,4 @@ def resultView():
         
         
     
-    return render_template("docs.html", images=images)
+    return render_template("docs1.html", images=images)
