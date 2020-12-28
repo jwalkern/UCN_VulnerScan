@@ -26,6 +26,10 @@ def jquery():
     
     return render_template('docs.html', images=images)
 
+@app.route('/download')
+def download():
+    return render_template('download.html')
+
  
 @app.route("/scan", methods=["GET"])
 def resultView():
