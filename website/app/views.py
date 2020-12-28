@@ -31,7 +31,7 @@ def upload():
     return render_template('download.html')
 
 @app.route('/download')
-def download():
+def download_file():
     path = '/static/files/result.xml'
     return send_file(path, as_attachment=True)
 
