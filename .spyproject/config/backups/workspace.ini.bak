@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['website\\app\\views.py', 'website\\app\\templates\\base.html', 'website\\app\\driver.py', 'website\\app\\templates\\image.html', 'website\\app\\templates\\index.html', 'nmap\\nmap_scan.py', 'website\\app\\templates\\docs.html']
+recent_files = ['website\\app\\templates\\base.html', 'website\\app\\templates\\docs.html', 'website\\app\\templates\\image.html', 'website\\app\\templates\\index.html', 'website\\app\\driver.py', 'website\\app\\views.py', 'nmap\\nmap_scan.py']
 
