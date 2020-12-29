@@ -15,9 +15,9 @@ def index():
 def jquery():
     
     images = []
-    for file in os.listdir('/home/pi/vulnerScan/website/app/static/images/keyfeatures'):
+    for file in os.listdir('/home/pi/vulnerScan/website/app/static/images'):
         if file.endswith('.png'):
-            images.append(os.path.join('/static/images/keyfeatures', file))
+            images.append(os.path.join('/static/images', file))
         else:
             continue   
         
@@ -46,7 +46,7 @@ def resultView():
     for host in hosts:
     
         counter += 1
-        filePath = f"/home/pi/vulnerScan/website/app/static/images/keyfeatures/plot{counter}.png"
+        filePath = f"/home/pi/vulnerScan/website/app/static/images/plot{counter}.png"
         title = host['address']
         
         chartPorts = []
@@ -88,9 +88,9 @@ def resultView():
         plt.clf()
 
     images = []
-    for file in os.listdir('/home/pi/vulnerScan/website/app/static/images/keyfeatures'):
+    for file in os.listdir('/home/pi/vulnerScan/website/app/static/images'):
         if file.endswith('.png'):
-            images.append(os.path.join('/static/images/keyfeatures', file))
+            images.append(os.path.join('/static/images', file))
         else:
             continue
         
