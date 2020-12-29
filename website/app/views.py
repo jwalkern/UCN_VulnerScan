@@ -81,11 +81,7 @@ def resultView():
         
         ax.set_ylabel('Exploits')
         ax.set_title(title)
-        try:
-            ax.legend()
-        except:
-            pass
-        
+
         plt.savefig(filePath)
         plt.clf()
 
