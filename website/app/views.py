@@ -81,6 +81,8 @@ def resultView():
         
         ax.set_ylabel('Exploits')
         ax.set_title(title)
+        
+        ax.legend()
 
         plt.savefig(filePath)
         plt.clf()
@@ -88,7 +90,7 @@ def resultView():
     images = []
     for file in os.listdir('/home/pi/vulnerScan/website/app/static/images/keyfeatures'):
         if file.endswith('.png'):
-            images.append(os.path.join('/home/pi/vulnerScan/website/app/static/images/keyfeatures', file))
+            images.append(os.path.join('/static/images/keyfeatures', file))
         else:
             continue
         
