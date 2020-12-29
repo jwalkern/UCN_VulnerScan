@@ -68,6 +68,7 @@ def resultView():
                     possibleExploits.append(0)
              
         # Generate plot
+        #Hvorfor bruger vi ikke den orginale liste?
         port = chartPorts
         vExploits = verifiedExploits
         pExploits = possibleExploits
@@ -80,8 +81,10 @@ def resultView():
         
         ax.set_ylabel('Exploits')
         ax.set_title(title)
-        
-        ax.legend()
+        try:
+            ax.legend()
+        except:
+            pass
         
         plt.savefig(filePath)
         plt.clf()
