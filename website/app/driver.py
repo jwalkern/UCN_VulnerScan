@@ -45,7 +45,8 @@ def xml_reader(file):
     1. funktionen indlæser xml filen der returneres af nmap_scan()
     2. den bruger xml root tag for at ittere igennem host tagget.
     3. Her bearbejder den specifikke attributer f.eks. address, port, protocol, state og script.
-    4. Attributterne samles i en dictonary som returneres.
+    4. Deler script attributten op i exploit og aktive exploit.
+    5. Attributterne samles i en dictonary som returneres.
     """
     ipaddr = ipaddress()    
 #1
@@ -87,6 +88,7 @@ def xml_reader(file):
             if state is not None:
                 port_details.update({'state':state.attrib.get('state'),
                                      'reason':state.attrib.get('reason', '')})
+#4
             if script is not None:
                 for item in script:
                    port_details.update({'id':item.attrib.get('id', '')})   
@@ -116,7 +118,7 @@ def xml_reader(file):
                
             if port_details['port'] is not None:
                 port_list.append(port_details)
-#4       
+#5      
         details['ports']=port_list
         hosts.append(details)
         
