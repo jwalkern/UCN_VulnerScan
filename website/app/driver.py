@@ -76,7 +76,7 @@ def xml_reader(file):
                           'protocol':port.attrib.get('protocol')}
             service = port.find('service')
             state = port.find('state')
-            script = port.find('script')
+            script = port.findall('script')
             
             if service is not None:
                 port_details.update({'service':service.attrib.get('name'), 
@@ -88,29 +88,31 @@ def xml_reader(file):
                 port_details.update({'state':state.attrib.get('state'),
                                      'reason':state.attrib.get('reason', '')})
             if script is not None:
-               port_details.update({'id':script.attrib.get('id', '')})                   
-               exploits = []
-               active_exploits = []
-               vulners = script.attrib.get('id')
-               
-               if vulners == 'vulners':
-                   for elem in script.iter('elem'):
-                       is_exploit = elem.text
-                       if is_exploit == 'true':
-                           active_exploits.append(1)
-                       if is_exploit == 'false':
+                for item in script:
+                   port_details.update({'id':item.attrib.get('id', '')})   
+                   
+                   exploits = []
+                   active_exploits = []
+                   vulners = item.attrib.get('id')
+                   
+                   if vulners == 'vulners':
+                       for elem in item.iter('elem'):
+                           is_exploit = elem.text
+                           if is_exploit == 'true':
+                               active_exploits.append(1)
+                           if is_exploit == 'false':
+                               exploits.append(1)
+                                                     
+                   elif vulners != 'vulners':
+                       elem = item.findall('elem')
+                       table = item.findall('table')
+                       for item in elem:
                            exploits.append(1)
-                                                 
-               elif vulners != 'vulners':
-                   elem = script.findall('elem')
-                   table = script.findall('table')
-                   for item in elem:
-                       exploits.append(1)
-                   for item in table:
-                       exploits.append(1)
-                       
-               port_details.update({'exploits:': sum(exploits),
-                                    'active exploits:': sum(active_exploits)})
+                       for item in table:
+                           exploits.append(1)
+                           
+                   port_details.update({'exploits:': sum(exploits),
+                                        'active exploits:': sum(active_exploits)})
                
             if port_details['port'] is not None:
                 port_list.append(port_details)
