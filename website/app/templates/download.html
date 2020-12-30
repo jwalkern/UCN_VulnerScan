@@ -2,7 +2,13 @@
 {% block title %}Download{% endblock %}
 {% block body %}
 
-<a href="{{ url_for('download_file') }}" class="btn btn-secondary btn-lg">Download XML</a>
+
+<div class="container">
+    <div class="center">
+        <a href="{{ url_for('download_file') }}" class="btn btn-secondary">Download XML</a>
+    </div>
+</div>
+
 
 {% endblock %}
 
