@@ -45,15 +45,13 @@ for host in hosts:
  
     
         # Generate plot
-        port = chartPorts
-        vExploits = verifiedExploits
-        pExploits = possibleExploits
+
         # the width of the bars: can also be len(x) sequence
         
         fig, ax = plt.subplots()
         width = 0.35   
-        ax.bar(port, vExploits, width, label='Not confirmed exploits')
-        ax.bar(port, pExploits, width, bottom=vExploits,
+        ax.bar(chartPorts, verifiedExploits, width, label='Not confirmed exploits')
+        ax.bar(chartPorts, possibleExploits, width, bottom=verifiedExploits,
                label='Exploits')
         
         ax.set_ylabel('Exploits')
@@ -61,7 +59,19 @@ for host in hosts:
         
         ax.legend()
     
-plt.show()    
+plt.show() 
+
+for host in hosts:
+    print('---------------------------------------------------------')
+    print('Name:', str(host.get('name','')))
+    print('IP:', str(host.get('address', '')))
+    print('Services: ')
+    for port in host['ports']:
+        print('\t Service: ')
+        print('\t-----------------------------------')
+        for k,v in port.items():
+            print('\t\t',str(k),':',str(v))
+    print('---------------------------------------------------------')     
     
     
 

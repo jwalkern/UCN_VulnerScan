@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['website\\app\\views.py', 'website\\app\\driver.py', 'website\\app\\templates\\docs.html', 'website\\app\\templates\\download.html', 'website\\app\\templates\\index.html', 'website\\app\\templates\\base.html']
+recent_files = ['zhit\\test_in_zgit\\test.py', 'zhit\\test_in_zgit\\DER_ER_EN_FEJL_HER.py']
 
