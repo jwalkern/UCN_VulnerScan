@@ -9,8 +9,7 @@
 .btn-secondary:focus {
   text-align: center;
   border: #FFF
-  margin: auto;
-  display: flex;
+  position: relative;
   width: 20%;
   height: 5%;
   color: #FFF;
