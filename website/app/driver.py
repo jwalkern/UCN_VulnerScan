@@ -10,13 +10,7 @@ import socket
 import nmap3
 
 
-
-def nmap_scan():
-    """
-    funktionen laver et socket bind, for at få host ip adressen.
-    Dette bruger nmap til at scanne hele netværket.
-    Scaning resultat returneres i en xml fil.
-    """
+def ipaddress():
     IP = "8.8.8.8"      
    
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -24,11 +18,21 @@ def nmap_scan():
     ipaddr = s.getsockname()[0]    
     s.close()
     
+    return ipaddr
+
+def nmap_scan():
+    """
+    funktionen laver et socket bind, for at få host ip adressen.
+    Dette bruger nmap til at scanne hele netværket.
+    Scaning resultat returneres i en xml fil.
+    """
+    ipaddr = ipaddress()
+    
     print ("Target for scan:", ipaddr+"/24")
     print("nmap scan running")
     
     nmap = nmap3.Nmap()
-    nmap_command = nmap.run_command(["nmap", "-O" ,"-Pn", "-T4", "-sV", "-sS", "-oX", "/home/pi/vulnerScan/website/app/static/files/result.xml",
+    nmap_command = nmap.run_command(["nmap", "-O" ,"-Pn", "-sV", "-sS", "-oX", "/home/pi/vulnerScan/website/app/static/files/result.xml",
                                      "--script=nmap-vulners", "-p21,22,23,25,80,111,135,139,445,3389 ", str(ipaddr)+"/24"])    
     print("nmap scan complete")
     
@@ -42,7 +46,8 @@ def xml_reader(file):
     2. den bruger xml root tag for at ittere igennem host tagget.
     3. Her bearbejder den specifikke attributer f.eks. address, port, protocol, state og script.
     4. Attributterne samles i en dictonary som returneres.
-    """    
+    """
+    ipaddr = ipaddress()    
 #1
     with open(file, "r") as f:
         scan_result = f.read()
@@ -62,6 +67,9 @@ def xml_reader(file):
         details = {'address':host.find('address').attrib.get('addr')}
         port_list = []
         ports=host.find("ports")
+        
+        if details['address'] == ipaddr:
+            continue
         
         for port in ports:
             port_details={'port':port.attrib.get('portid'),
