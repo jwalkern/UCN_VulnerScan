@@ -8,9 +8,10 @@
 .btn-secondary:hover,
 .btn-secondary:focus {
   color: #111;
-  text-shadow: none; /* Prevent inheritance from `body` */
+  text-shadow: none; /* Prevent inheritance from `body` */  
 }
 
+.btn-sm
 
 /*
  * Base structure
