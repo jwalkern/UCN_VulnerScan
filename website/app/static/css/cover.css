@@ -8,8 +8,8 @@
 .btn-secondary:hover,
 .btn-secondary:focus {
   width: 30%;
-  height: 100%;  
-  color: #111;
+  height: 15%;  
+  color: #333;
   text-shadow: none; /* Prevent inheritance from `body` */  
 }
 
