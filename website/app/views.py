@@ -21,7 +21,7 @@ def jquery():
         else:
             continue   
         
-    return render_template('docs.html', images=images)
+    return render_template('carousel.html', images=images)
 
 @app.route('/upload')
 def upload():
@@ -92,4 +92,4 @@ def resultView():
         
         
     
-    return render_template("docs.html", images=images)
+    return render_template("carousel.html", images=images)
