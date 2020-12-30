@@ -68,15 +68,11 @@ def resultView():
                     possibleExploits.append(0)
              
         # Generate plot
-        #Hvorfor bruger vi ikke den orginale liste?
-        port = chartPorts
-        vExploits = verifiedExploits
-        pExploits = possibleExploits
         
         fig, ax = plt.subplots()
         width = 0.35   
-        ax.bar(port, vExploits, width, label='Not confirmed exploits')
-        ax.bar(port, pExploits, width, bottom=vExploits,
+        ax.bar(chartPorts, verifiedExploits, width, label='Not confirmed exploits')
+        ax.bar(chartPorts, possibleExploits, width, bottom=verifiedExploits,
                label='Exploits')
         
         ax.set_ylabel('Exploits')
