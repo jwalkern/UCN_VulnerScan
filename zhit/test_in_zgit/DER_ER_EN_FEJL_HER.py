@@ -30,6 +30,11 @@ for host in root.findall('host'):
     port_list = []
     ports=host.find("ports")
     
+    #Fjerner host ip addressen
+    if details['address'] == IPaddress:
+        print("virker")
+        continue
+    
     for port in ports:
         
         port_details={'port':port.attrib.get('portid'),
@@ -88,9 +93,7 @@ for host in root.findall('host'):
         OBS! FÆRDIG
         
         """
-        
-        if details['address'] == IPaddress:
-            print("virker")
+    
         
         
         if port_details['port'] is not None:
