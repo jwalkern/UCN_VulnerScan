@@ -11,7 +11,7 @@
 
   position: relative;
   width: 20%;
-  height: 5%;
+  height: 15%;
 
   text-shadow: none; /* Prevent inheritance from `body` */  
 }
