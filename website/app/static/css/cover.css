@@ -7,6 +7,8 @@
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
+  width: 30%;
+  height: 10%;  
   color: #111;
   text-shadow: none; /* Prevent inheritance from `body` */  
 }
