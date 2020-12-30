@@ -8,11 +8,11 @@
 .btn-secondary:hover,
 .btn-secondary:focus {
   text-align: center;
-  border: #FFF
+
   position: relative;
   width: 20%;
   height: 5%;
-  color: #FFF;
+
   text-shadow: none; /* Prevent inheritance from `body` */  
 }
 
