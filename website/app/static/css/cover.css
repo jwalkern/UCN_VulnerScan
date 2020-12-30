@@ -7,10 +7,11 @@
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
-  text-align: center;  
+  text-align: center;
+  margin: auto;
+  display: flex;
   width: 20%;
   height: 15%;
-  display: block;  
   color: #111;
   text-shadow: none; /* Prevent inheritance from `body` */  
 }
