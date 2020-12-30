@@ -11,7 +11,7 @@
   margin: auto;
   display: flex;
   width: 20%;
-  height: 15%;
+  height: 5%;
   color: #111;
   text-shadow: none; /* Prevent inheritance from `body` */  
 }
