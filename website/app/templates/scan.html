@@ -3,8 +3,10 @@
 {% block body %}
 
 <p> Tryk på start for at scanne dit netværk </p>
-<a class="btn-secondary:hover" href="{{ url_for('scanner') }}">Start</a>
-<p> Du vil automatisk bliv viderstillet til dit resultat </p>
+<div class="wrapper">
+    <a href="{{ url_for('scanner') }}">Start</a>
+</div>
+<p> Du vil automatisk bliv viderstillet når dit resultat er klar </p>
 
 
 {% endblock %}
