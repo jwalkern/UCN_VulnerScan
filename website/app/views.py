@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import render_template, send_file
+from flask import render_template, send_file, redirect, url_for
 from app import app
 import os
 import matplotlib.pyplot as plt
@@ -14,33 +14,7 @@ def index():
 @app.route('/result')
 def jquery():
     
-    images = []
-    for file in os.listdir('/home/pi/vulnerScan/website/app/static/images'):
-        if file.endswith('.png'):
-            images.append(os.path.join('/static/images', file))
-        else:
-            continue   
-        
-    return render_template('result.html', images=images)
-
-@app.route('/upload')
-def upload():
-    
-    return render_template('download.html')
-
-@app.route('/download')
-def download_file():
-    
-    path = '/home/pi/vulnerScan/website/app/static/files/result.xml'
-    
-    return send_file(path, as_attachment=True)
-
- 
-@app.route("/scan", methods=["GET"])
-def resultView():
-    
-    xmlFile = driver.nmap_scan()
-    hosts = driver.xml_reader(xmlFile)
+    hosts = driver.xml_reader('/home/pi/vulnerScan/website/app/static/files/result.xml')
     counter = 0
     
     for host in hosts:
@@ -82,14 +56,39 @@ def resultView():
 
         plt.savefig(filePath)
         plt.clf()
-
+    
     images = []
+    
     for file in os.listdir('/home/pi/vulnerScan/website/app/static/images'):
         if file.endswith('.png'):
             images.append(os.path.join('/static/images', file))
         else:
-            continue
+            continue   
         
-        
+    return render_template('result.html', images=images)
+
+@app.route('/upload')
+def upload():
     
-    return render_template("result.html", images=images)
+    return render_template('download.html')
+
+@app.route('/download')
+def download_file():
+    
+    path = '/home/pi/vulnerScan/website/app/static/files/result.xml'
+    
+    return send_file(path, as_attachment=True)
+
+ 
+@app.route("/scan")
+def resultView():
+    
+    return render_template("scan.html")
+
+@app.route("/scanner")
+def scanner():
+    
+    xmlFile = driver.nmap_scan()
+    
+    return redirect(url_for('jquery'))
+    
