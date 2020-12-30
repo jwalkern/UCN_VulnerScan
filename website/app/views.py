@@ -6,11 +6,14 @@ import os
 import matplotlib.pyplot as plt
 from app import driver
 
+
+#Dette er vores startside og viser index.html 
 @app.route('/')
 def index():
     
     return render_template('index.html')
 
+#Dette er /result, funktionen genere plots ud fra er xml fil. viser result.html og returner images
 @app.route('/result')
 def jquery():
     
@@ -41,8 +44,7 @@ def jquery():
                 else:
                     possibleExploits.append(0)
              
-        # Generate plot
-        
+        # Generate plot       
         fig, ax = plt.subplots()
         width = 0.35   
         ax.bar(chartPorts, verifiedExploits, width, label='Not confirmed exploits')
@@ -67,11 +69,13 @@ def jquery():
         
     return render_template('result.html', images=images)
 
+#Dette er /upload, den viser vores download.html
 @app.route('/upload')
 def upload():
     
     return render_template('download.html')
 
+#Vores download.html sender en fil.
 @app.route('/download')
 def download_file():
     
@@ -79,12 +83,13 @@ def download_file():
     
     return send_file(path, as_attachment=True)
 
- 
+#Dette er /scan, den viser vores scan.html
 @app.route("/scan")
 def resultView():
     
     return render_template("scan.html")
 
+#Vores scan.html, aktivere vores nmap_scan() via url_for(scanner) på scan.html siden.
 @app.route("/scanner")
 def scanner():
     
