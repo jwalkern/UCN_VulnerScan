@@ -3,6 +3,7 @@
 from flask import render_template, send_file, redirect, url_for
 from app import app
 import os
+import glob
 import matplotlib.pyplot as plt
 from app import driver
 
@@ -92,6 +93,10 @@ def resultView():
 #Vores scan.html, aktivere vores nmap_scan() via url_for(scanner) på scan.html siden.
 @app.route("/scanner")
 def scanner():
+    
+    files = glob.glob('/home/pi/vulnerScan/website/app/static/images/*.png')
+    for i in files:
+        os.remove(i)
     
     xmlFile = driver.nmap_scan()
     
