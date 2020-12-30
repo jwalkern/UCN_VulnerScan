@@ -7,7 +7,7 @@
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
-  color: #333;
+  color: #111;
   text-shadow: none; /* Prevent inheritance from `body` */
 }
 
@@ -51,3 +51,5 @@ body {
   color: #fff;
   border-bottom-color: #fff;
 }
+
+
