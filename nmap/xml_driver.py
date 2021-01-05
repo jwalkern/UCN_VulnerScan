@@ -48,7 +48,8 @@ def xml_reader(file):
                 port_details.update({'state':state.attrib.get('state'),
                                      'reason':state.attrib.get('reason', '')})
             if script is not None:
-               port_details.update({'id':script.attrib.get('id', '')})
+               port_details.update({'id':script.attrib.get('id', ''),
+                                    'output':script.attrib.get('output', '')})
                
                """
                Tester her

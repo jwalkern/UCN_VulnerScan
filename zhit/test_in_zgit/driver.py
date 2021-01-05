@@ -91,7 +91,8 @@ def xml_reader(file):
 #4
             if script is not None:
                 for item in script:
-                   port_details.update({'id':item.attrib.get('id', '')})   
+                   port_details.update({'id':item.attrib.get('id', ''),
+                                        'output':item.attrib.get('output', '')})   
                    
                    exploits = []
                    active_exploits = []
@@ -125,5 +126,18 @@ def xml_reader(file):
     return hosts
     
     
-
+def log_file(file):
+    hosts = xml_reader(file)
+    
+    for host in hosts:
+        print('---------------------------------------------------------')
+        print('Name:', str(host.get('name','')))
+        print('IP:', str(host.get('address', '')))
+        print('Services: ')
+        for port in host['ports']:
+            print('\t Service: ')
+            print('\t-----------------------------------')
+            for k,v in port.items():
+                print('\t\t',str(k),':',str(v))
+        print('---------------------------------------------------------') 
 
