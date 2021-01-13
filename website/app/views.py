@@ -101,4 +101,27 @@ def scanner():
     xmlFile = driver.nmap_scan()
     
     return redirect(url_for('jquery'))
+
+
+@app.route("/text")
+def text_file():
+    
+    hosts = driver.xml_reader('/home/pi/vulnerScan/website/app/static/files/result.xml')    
+    file = '/home/pi/vulnerScan/website/app/static/files/result.txt'
+    
+    with open(file, "w") as f:
+        for host in hosts:	
+            f.write('---------------------------------------------------------')	
+            f.write('Name:', str(host.get('name','')))	
+            f.write('IP:', str(host.get('address', '')))	
+            f.write('Services: ')	
+            for port in host['ports']:	
+                f.write('\t Service: ')	
+                f.write('\t-----------------------------------')	
+                for k,v in port.items():	
+                    f.write('\t\t',str(k),':',str(v))	
+            f.write('---------------------------------------------------------')
+        f.close
+    return send_file(file, as_attachment=True)
+        
     
