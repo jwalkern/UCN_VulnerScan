@@ -111,16 +111,16 @@ def text_file():
     
     with open(file, "w") as f:
         for host in hosts:	
-            f.writeline('---------------------------------------------------------')	
-            f.writeline('Name:', str(host.get('name','')))	
-            f.writeline('IP:', str(host.get('address', '')))	
-            f.writeline('Services: ')	
+            f.writelines('---------------------------------------------------------')	
+            f.writelines('Name:', str(host.get('name','')))	
+            f.writelines('IP:', str(host.get('address', '')))	
+            f.writelines('Services: ')	
             for port in host['ports']:	
-                f.writeline('\t Service: ')	
-                f.writeline('\t-----------------------------------')	
+                f.writelines('\t Service: ')	
+                f.writelines('\t-----------------------------------')	
                 for k,v in port.items():	
-                    f.write('\t\t',str(k),':',str(v))	
-            f.writeline('---------------------------------------------------------')
+                    f.writelines('\t\t',str(k),':',str(v))	
+            f.writelines('---------------------------------------------------------')
         f.close()
     return send_file(file, as_attachment=True)
         
