@@ -6,6 +6,7 @@ import os
 import glob
 import matplotlib.pyplot as plt
 from app import driver
+import datetime
 
 
 #Dette er vores startside og viser index.html 
@@ -109,18 +110,20 @@ def text_file():
     hosts = driver.xml_reader('/home/pi/vulnerScan/website/app/static/files/result.xml')    
     file = '/home/pi/vulnerScan/website/app/static/files/result.txt'
     
-    with open(file, "w") as f:
+    with open(file, "w") as f:	
+        
+        x = datetime.datetime.now()	
+        f.write("The log file was created:\n\n" + str(x.strftime("%b %d %Y %H:%M:%S"))+'\n\n')	
+        f.write('---------------------------------------------------------'+'\n')	
         for host in hosts:	
-            f.writelines('---------------------------------------------------------')	
-            f.writelines('Name:', str(host.get('name','')))	
-            f.writelines('IP:', str(host.get('address', '')))	
-            f.writelines('Services: ')	
+            f.write('IP: '+ str(host.get('address', ''))+'\n')	
+            f.write('Services: '+'\n')	
             for port in host['ports']:	
-                f.writelines('\t Service: ')	
-                f.writelines('\t-----------------------------------')	
+                f.write('\t Service: '+'\n')	
+                f.write('\t-----------------------------------'+'\n')	
                 for k,v in port.items():	
-                    f.writelines('\t\t',str(k),':',str(v))	
-            f.writelines('---------------------------------------------------------')
+                    f.write('\t\t'+str(k)+' : '+str(v)+'\n')	
+            f.write('---------------------------------------------------------'+'\n') 
         f.close()
     return send_file(file, as_attachment=True)
         
