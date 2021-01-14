@@ -91,7 +91,8 @@ def xml_reader(file):
 #4
             if script is not None:
                 for item in script:
-                   port_details.update({'id':item.attrib.get('id', '')})   
+                   port_details.update({'id':item.attrib.get('id', ''),
+                                        'output':item.attrib.get('output', '')})   
                    
                    exploits = []
                    active_exploits = []
